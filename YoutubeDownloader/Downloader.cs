@@ -36,30 +36,7 @@ namespace YoutubeDownloader
                 AudioConverter.toMp3(videoPath);
             }
 
-
-            // convert from mp4 to mp3 and delete original video
-
             int x = 2;
-
-
-
-            //string fileName = urlRaw.Substring(urlRaw.IndexOf("v=") + 2) + ".mp3";
-          /*  string url = "http://www.youtubeinmp3.com/fetch/?video=" + urlRaw;
-            string fileName = getWebsiteTitle(urlRaw) + ".mp3";
-
-            // download file
-            HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            myHttpWebRequest.MaximumAutomaticRedirections = 10;
-            myHttpWebRequest.AllowAutoRedirect = true;
-            HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-
-            using (var responseStream = myHttpWebResponse.GetResponseStream()) 
-            {
-                using (var fileStream = new FileStream(pathString + @"\" + fileName, FileMode.Create)) 
-                {
-                    responseStream.CopyToAsync(fileStream);
-                }
-            }*/
         }
         
         public static string getWebsiteTitle(string url)
@@ -70,5 +47,14 @@ namespace YoutubeDownloader
             return Regex.Match(source, @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>", RegexOptions.IgnoreCase).Groups["Title"].Value;
         }
 
+        public static bool isValidUrl(string url)
+        {
+            if (url.Contains("http://www.youtube.com"))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

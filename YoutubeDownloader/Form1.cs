@@ -21,11 +21,12 @@ namespace YoutubeDownloader
 
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
         {
+            string clipboardUrl = Clipboard.GetText();
             // look for ctrl v
-            if(e.Control && e.KeyCode == Keys.V)
+            if (e.Control && e.KeyCode == Keys.V && Downloader.isValidUrl(clipboardUrl))
             {
                 // add dictionary to keep track of names and urls
-                var url = new YoutubeUrl(Downloader.getWebsiteTitle(Clipboard.GetText()), Clipboard.GetText());
+                var url = new YoutubeUrl(Downloader.getWebsiteTitle(Clipboard.GetText()), url);
                 _urls.Add(url.url);
 
                 listBox1.DataSource = null;
@@ -35,15 +36,12 @@ namespace YoutubeDownloader
 
         private void buttonDownload_Click(object sender, EventArgs e)
         {
-            foreach (var url in listBox1.Items)
-            {
-                //Downloader.Download(url.ToString());
-            }
-
             try
             {
-                Downloader.Download(listBox1.Items[0].ToString(), checkBoxAudioOnly.Checked);
-
+                foreach (var url in listBox1.Items)
+                {
+                    Downloader.Download(url.ToString(), checkBoxAudioOnly.Checked);
+                }
             }catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
