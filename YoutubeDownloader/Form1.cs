@@ -22,15 +22,20 @@ namespace YoutubeDownloader
         private void listBox1_KeyDown(object sender, KeyEventArgs e)
         {
             string clipboardUrl = Clipboard.GetText();
+
             // look for ctrl v
             if (e.Control && e.KeyCode == Keys.V && Downloader.isValidUrl(clipboardUrl))
             {
                 // add dictionary to keep track of names and urls
-                var url = new YoutubeUrl(Downloader.getWebsiteTitle(Clipboard.GetText()), url);
+                var url = new YoutubeUrl(Downloader.getWebsiteTitle(Clipboard.GetText()), clipboardUrl);
                 _urls.Add(url.url);
 
                 listBox1.DataSource = null;
                 listBox1.DataSource = _urls;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Url: {0} not valid", clipboardUrl));
             }
         }
 
