@@ -42,7 +42,7 @@ namespace YoutubeDownloader
 
             try
             {
-                Downloader.Download(listBox1.Items[0].ToString());
+                Downloader.Download(listBox1.Items[0].ToString(), checkBoxAudioOnly.Checked);
 
             }catch (Exception ex)
             {

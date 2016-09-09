@@ -11,3 +11,16 @@ C:\Users\Avalon\GitRepos\Angularmote\YoutubeDownloader\YoutubeDownloader\bin\Deb
 C:\Users\Avalon\GitRepos\Angularmote\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeExtractor.dll
 C:\Users\Avalon\GitRepos\Angularmote\YoutubeDownloader\YoutubeDownloader\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Avalon\GitRepos\Angularmote\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeExtractor.xml
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeDownloader.exe.config
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.exe
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.pdb
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeDownloader.exe
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeDownloader.pdb
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeExtractor.dll
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\bin\Debug\YoutubeExtractor.xml
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.csprojResolveAssemblyReference.cache
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.Form1.resources
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.Properties.Resources.resources
+C:\Users\Avalon\JobRepos\YoutubeDownloader\YoutubeDownloader\obj\Debug\YoutubeDownloader.csproj.GenerateResource.Cache

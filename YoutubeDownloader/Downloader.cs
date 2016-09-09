@@ -12,7 +12,7 @@ namespace YoutubeDownloader
 {
     static class Downloader
     {
-        public static void Download(string urlRaw)
+        public static void Download(string urlRaw, bool audioOnly)
         {
             // todo: store location somewhere, folder on desktop for now
             string pathString = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), "test");
@@ -26,8 +26,16 @@ namespace YoutubeDownloader
             .First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
             
             // download the video
-            var videoDownloader = new VideoDownloader(video, Path.Combine(pathString, video.Title + video.VideoExtension));
+            string videoPath = Path.Combine(pathString, video.Title + video.VideoExtension);
+            var videoDownloader = new VideoDownloader(video, videoPath);
             videoDownloader.Execute();
+
+            // if only audio is wanted, convert to mp3 using ffmpeg
+            if(audioOnly)
+            {
+                AudioConverter.toMp3(videoPath);
+            }
+
 
             // convert from mp4 to mp3 and delete original video
 
