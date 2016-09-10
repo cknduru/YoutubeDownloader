@@ -13,6 +13,7 @@ namespace YoutubeDownloader
     public partial class Form1 : Form
     {
         List<string> _urls = new List<string>();
+        UrlManager _urlManager = new UrlManager();
 
         public Form1()
         {
@@ -24,18 +25,27 @@ namespace YoutubeDownloader
             string clipboardUrl = Clipboard.GetText();
 
             // look for ctrl v
-            if (e.Control && e.KeyCode == Keys.V && Downloader.isValidUrl(clipboardUrl))
+            if (e.Control && e.KeyCode == Keys.V)// && _urlManager.isValidUrl(clipboardUrl))
             {
+                e.SuppressKeyPress = false;
+
                 // add dictionary to keep track of names and urls
                 var url = new YoutubeUrl(Downloader.getWebsiteTitle(Clipboard.GetText()), clipboardUrl);
-                _urls.Add(url.url);
+                _urlManager.AddUrl(url);
 
-                listBox1.DataSource = null;
-                listBox1.DataSource = _urls;
+                // only add urls not already in the list
+                if(!_urls.Contains(clipboardUrl))
+                {
+                    _urls.Add(url.title);
+
+                    listBox1.DataSource = null;
+                    listBox1.DataSource = _urls;
+                }
             }
             else
             {
-                MessageBox.Show(string.Format("Url: {0} not valid", clipboardUrl));
+                e.SuppressKeyPress = true;
+                //MessageBox.Show(string.Format("Url: {0} not valid", clipboardUrl));
             }
         }
 
@@ -43,9 +53,9 @@ namespace YoutubeDownloader
         {
             try
             {
-                foreach (var url in listBox1.Items)
+                foreach (var title in listBox1.Items)
                 {
-                    Downloader.Download(url.ToString(), checkBoxAudioOnly.Checked);
+                    Downloader.Download(_urlManager.UrlFromTitle(title.ToString()), checkBoxAudioOnly.Checked);
                 }
             }catch (Exception ex)
             {

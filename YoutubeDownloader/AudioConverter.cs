@@ -32,7 +32,7 @@ namespace YoutubeDownloader
             {
                 _process.Kill();
             }
-
+            System.Windows.Forms.MessageBox.Show(_out);
             /* use this for error handling at a later time
             return _out;
             */

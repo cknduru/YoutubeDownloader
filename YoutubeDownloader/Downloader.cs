@@ -35,8 +35,6 @@ namespace YoutubeDownloader
             {
                 AudioConverter.toMp3(videoPath);
             }
-
-            int x = 2;
         }
         
         public static string getWebsiteTitle(string url)
@@ -45,16 +43,6 @@ namespace YoutubeDownloader
             string source = x.DownloadString(url);
 
             return Regex.Match(source, @"\<title\b[^>]*\>\s*(?<Title>[\s\S]*?)\</title\>", RegexOptions.IgnoreCase).Groups["Title"].Value;
-        }
-
-        public static bool isValidUrl(string url)
-        {
-            if (url.Contains("http://www.youtube.com"))
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 }
